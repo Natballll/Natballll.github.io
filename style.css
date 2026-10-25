@@ -1,0 +1,215 @@
+h1 {
+    font-family: "Sniglet", system-ui;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+h2 {
+    font-family: "Sniglet", system-ui;
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-weight: 400;
+}
+
+h3 {
+    font-family: "Sniglet", system-ui;
+    font-size: clamp(0.8rem, 1.5vw, 2.2rem);
+    font-weight: 400;
+}
+
+.h3-link {
+    font-family: "Sniglet", system-ui;
+    font-size: clamp(0.8rem, 1.5vw, 2.2rem);
+    font-weight: 400;
+}
+
+p {
+    font-family: "Elms Sans", system-ui;
+    font-size: clamp(1rem, 1.2vw, 1.125rem);
+    font-weight: 500;
+}
+
+.standard {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.wide {
+    width: 95%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* stacks the buttons on narrow screens */
+}
+
+.photo-row img {
+    flex: 1 1 0;
+    /* the three images share the row equally */
+    min-width: 150px;
+    /* wrap to a new line before getting too small */
+    max-width: 300px;
+    /* never grow past 300px wide */
+    object-fit: cover;
+    /* crop instead of stretching */
+    border-radius: 8px;
+}
+
+.image-button img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    /* crops instead of stretching */
+    display: block;
+    border-radius: 8px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.image-button:hover img {
+    transform:
+        scale(1.15) rotate(2deg);
+    opacity: 0.9;
+}
+
+:root {
+    /* --banner-bg: #1f2937; */
+    --banner-text: #002871;
+    --banner-hover: #b6b6b6;
+    --banner-active: #002c73;
+}
+
+
+.banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    background: var(--banner-bg);
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tabs a {
+    display: block;
+    padding: 0.9rem 1.25rem;
+    color: var(--banner-text);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+
+.tabs a:hover,
+.tabs a:focus-visible {
+    background: var(--banner-hover);
+}
+
+.tabs a[aria-current="page"] {
+    border-bottom-color: var(--banner-active);
+}
+
+.banner-extras {
+    margin-left: auto;
+    /* pushes extras to the right edge */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    background: var(--card-image) center / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    /* space around the content */
+    box-sizing: border-box;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+}
+
+/* Dark overlay so text is readable */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+}
+
+
+.card-title {
+    position: relative;
+    /* sits above the overlay */
+    margin: 0;
+    transition: opacity 0.3s ease;
+    color: #000;
+    background: #fff;
+    padding: 0.25em 0.6em;
+    display: inline-block
+}
+
+.card-subtitle {
+    position: relative;
+    /* keeps it above the dark overlay */
+    margin: 0.4rem 0 0;
+    /* small gap below the title */
+    font-size: 0.95rem;
+    transition: opacity 0.3s ease;
+    color: #000;
+    background: #fff;
+    padding: 0.25em 0.6em;
+    display: inline-block
+}
+
+.card-text {
+    position: relative;
+    /* sits above the overlay */
+    margin: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    text-align: left;
+    inset: 3rem;
+    /* padding around the paragraph */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    opacity: 0;
+}
+
+
+/* Hover and keyboard focus states */
+.card:hover::before,
+.card:focus-within::before {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.card:hover .card-title,
+.card:hover .card-subtitle,
+.card:focus-within .card-title {
+    opacity: 0;
+}
+
+.card:hover .card-text,
+.card:focus-within .card-text {
+    opacity: 1;
+}
