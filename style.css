@@ -64,8 +64,8 @@ p {
 }
 
 .image-button img {
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
     object-fit: cover;
     /* crops instead of stretching */
     display: block;
