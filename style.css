@@ -37,6 +37,11 @@ p {
     box-sizing: border-box;
 }
 
+.standard img {
+    max-width: 100%;
+    height: auto;
+}
+
 .wide {
     width: 95%;
     max-width: 900px;
